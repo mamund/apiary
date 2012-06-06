@@ -6,24 +6,6 @@ Welcome to the our API. Comments support [Markdown](http://daringfireball.net/pr
 ---
 
 -- To Do List --
-GET /todo/?filter=fish
-> Accept: text/html
-> Authorization: Basic xxxxxxxxxxxxxxxxxxxx
-< 200
-< Content-Type: text/html
-<dl class="collection">
-  <dt><a href="." class="add">add new item</a></dt>
-  <dt><a href="33" class="item">33</a></dt>
-  <dd>
-    <span class="title">this is a fish</span>
-  </dd>
-  <dt><a href="44" class="item">44</a></dt>
-  <dd>
-    <span class="title">this is a fish, too</span>
-  </dd>
-</dl>
-
-
 GET /todo/
 > Accept: text/html
 > Authorization: Basic xxxxxxxxxxxxxxxxxxxx
@@ -39,6 +21,24 @@ GET /todo/
   <dt><a href="2" class="item">2</a></dt>
   <dd>
     <span class="title">this is title 2</span>
+  </dd>
+</dl>
+
+
+GET /todo/?filter=fish
+> Accept: text/html
+> Authorization: Basic xxxxxxxxxxxxxxxxxxxx
+< 200
+< Content-Type: text/html
+<dl class="collection">
+  <dt><a href="." class="add">add new item</a></dt>
+  <dt><a href="33" class="item">33</a></dt>
+  <dd>
+    <span class="title">this is a fish</span>
+  </dd>
+  <dt><a href="44" class="item">44</a></dt>
+  <dd>
+    <span class="title">this is a fish, too</span>
   </dd>
 </dl>
 
