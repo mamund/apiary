@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ToDo SPA Client</title>
+    </head>
+    <body>
+        <h1>ToDo SPA Client</h1>
+        <div id="target"></div>
+    </body>
+    <script>
+        var todoUrl = 'http://4da0.mamund.apiary.io/todo/';
+        
+        window.onload = function() {
+            var pg = todoPage();
+            pg.init();
+        }
+        
+        var todoPage = function() {
+            
+            function init() {
+                var elm;
+                elm = document.getElementById('target');
+                if(elm) {
+                    makeRequest(todoUrl, elm);
+                }
+            }
+
+            function makeRequest(url, target) {
+                var xhr, html;
+                xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if(this.readyState === 4) {
+                        html = this.responseText;
+                        html = html.replace(/\.\//g,url);
+                        target.innerHTML = html;
+                    }
+                }
+                xhr.open('get',url);
+                xhr.send('');
+            }
+            
+            var that = {};
+            that.init = init;
+            
+            return that;
+        }
+    </script>
+</html>
