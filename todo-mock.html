@@ -1,0 +1,150 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>todo api testing</h1>
+        <p>
+            <input type="button" id="get-todo-list" value="get-todo-list" />
+            <input type="button" id="get-todo-filter" value="get-todo-filter" />
+            <input type="button" id="get-todo-item" value="get-todo-item" />
+            <input type="button" id="post-todo-item" value="post-todo-item" />
+            <input type="button" id="put-todo-item" value="put-todo-item" />
+            <input type="button" id="delete-todo-item" value="delete-todo-item" />
+        </p>
+    </body>
+    <script>
+        window.onload = function() {
+            
+            function init() {
+                var elm; 
+                
+                elm = document.getElementById('get-todo-list');
+                if(elm) {
+                    elm.onclick = getToDoList;
+                }
+                elm = document.getElementById('get-todo-filter');
+                if(elm) {
+                    elm.onclick = getToDoFilter;
+                }
+                elm = document.getElementById('get-todo-item');
+                if(elm) {
+                    elm.onclick = getToDoItem;
+                }
+                elm = document.getElementById('post-todo-item');
+                if(elm) {
+                    elm.onclick = postToDoItem;
+                }
+                elm = document.getElementById('put-todo-item');
+                if(elm) {
+                    elm.onclick = putToDoItem;
+                }
+                elm = document.getElementById('delete-todo-item');
+                if(elm) {
+                    elm.onclick = deleteToDoItem;
+                }
+            }
+            
+            function getToDoList() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'http://4da0.mamund.apiary.io/todo/');
+                 
+                xhr.setRequestHeader("Accept", "text/html");
+                 
+                xhr.setRequestHeader("Authorization", "Basic xxxxxxxxxxxxxxxxxxxx");
+                 
+                xhr.onreadystatechange = function () {
+                  if (this.status == 200 && this.readyState == 4) {
+                    alert(this.responseText);
+                  }
+                };
+                xhr.send("");
+            }
+            
+            function getToDoFilter() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'http://4da0.mamund.apiary.io/todo/?filter=fish');
+                 
+                xhr.setRequestHeader("Accept", "text/html");
+                 
+                xhr.setRequestHeader("Authorization", "Basic xxxxxxxxxxxxxxxxxxxx");
+                 
+                xhr.onreadystatechange = function () {
+                  if (this.status == 200 && this.readyState == 4) {
+                    alert(this.responseText);
+                  }
+                };
+                xhr.send("");
+            }
+            
+            function getToDoItem() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'http://4da0.mamund.apiary.io/todo/1');
+                 
+                xhr.setRequestHeader("Accept", "text/html");
+                 
+                xhr.setRequestHeader("Authorization", "Basic xxxxxxxxxxxxxxxxxxxx");
+                 
+                xhr.onreadystatechange = function () {
+                  if (this.status == 200 && this.readyState == 4) {
+                    alert(this.responseText);
+                  }
+                };
+                xhr.send("");
+            }
+            
+            function postToDoItem() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://4da0.mamund.apiary.io/todo/');
+                 
+                xhr.setRequestHeader("Accept", "text/thml");
+                 
+                xhr.setRequestHeader("Authorization", "Basic xxxxxxxxxxxxxxxxxxxx");
+                 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                 
+                xhr.onreadystatechange = function () {
+                  if (this.status == 200 && this.readyState == 4) {
+                    alert(this.responseText);
+                  }
+                };
+                xhr.send("title=this+is+a+new+title");
+            }
+            
+            function putToDoItem() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('PUT', 'http://4da0.mamund.apiary.io/todo/1');
+                 
+                xhr.setRequestHeader("Accept", "text/html");
+                 
+                xhr.setRequestHeader("Authorization", "Basic xxxxxxxxxxxxxxxxxxxx");
+                 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                 
+                xhr.onreadystatechange = function () {
+                  if (this.status == 200 && this.readyState == 4) {
+                    alert(this.responseText);
+                  }
+                };
+                xhr.send("title=this+is+a+new+title+1");
+            }
+            
+            function deleteToDoItem() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('DELETE', 'http://mamund.apiary.io/todo/1');
+                 
+                xhr.setRequestHeader("Accept", "text/html");
+                 
+                xhr.setRequestHeader("Authorization", "Basic xxxxxxxxxxxxxxxxxxxx");
+                 
+                xhr.onreadystatechange = function () {
+                  if (this.status == 200 && this.readyState == 4) {
+                    alert(this.responseText);
+                  }
+                };
+                xhr.send("");
+            }
+            
+            init();
+        }
+    </script>
+</html>
