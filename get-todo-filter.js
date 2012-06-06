@@ -4,7 +4,7 @@
 var request = require("request");
  
 request({
-  url: "http://4da0.mamund.apiary.io/todo/?filter=title",
+  url: "http://4da0.mamund.apiary.io/todo/?filter=fish",
   body: "",
   headers: {"Accept": "text/html", "Authorization": "Basic xxxxxxxxxxxxxxxxxxxx"}, 
   method: "GET"
